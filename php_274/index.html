@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>274</title>
+	</head>
+	<body>
+		<?php
+			error_reporting(E_ALL);
+			ini_set('display_errors', 'on');
+			mb_internal_encoding('UTF-8');
+			
+			include '274.php';
+		?>
+		<form method="get">
+			<label for="celsius"><strong>Введите температуру в градусах Цельсия:</strong></label><br>
+			<input type="number" id="celsius" name="celsius" required>
+			<button type="submit">Конвертировать</button>
+		</form>
+		
+		<form method="get">
+			<label for="number"><strong>Введите число для расчета факториала:</strong></label><br>
+			<input type="number" id="number" name="number" required>
+			<button type="submit">Рассчитать факториал</button>
+		</form>
+
+		<form method="get">
+			<label for="number"><strong>Введите число для поиска делителей:</strong></label><br>
+			<input type="number" id="number" name="number" required>
+			<button type="submit">Найти делители</button>
+		</form>
+	
+		<form method="get">
+			<label for="number1"><strong>Введите первое число:</strong></label><br>
+			<input type="number" id="number1" name="number1" required>
+			<br>
+			<label for="number2"><strong>Введите второе число:</strong></label><br>
+			<input type="number" id="number2" name="number2" required>
+			<button type="submit">Найти общие делители</button>
+		</form>
+		
+		<form method="get">
+			<label for="a"><strong>Введите коэффициент a:</strong></label><br>
+			<input type="number" id="a" name="a" required>
+			<br>
+			<label for="b"><strong>Введите коэффициент b:</strong></label><br>
+			<input type="number" id="b" name="b" required>
+			<br>
+			<label for="c"><strong>Введите коэффициент c:</strong></label><br>
+			<input type="number" id="c" name="c" required>
+			<button type="submit">Найти корни</button>
+		</form>
+		
+		<form method="get">
+			<label for="num1"><strong>Введите первое число:</strong></label><br>
+			<input type="number" id="num1" name="num1" required>
+			<br>
+			<label for="num2"><strong>Введите второе число:</strong></label><br>
+			<input type="number" id="num2" name="num2" required>
+			<br>
+			<label for="num3"><strong>Введите третье число:</strong></label><br>
+			<input type="number" id="num3" name="num3" required>
+			<button type="submit">Проверить</button>
+		</form>
+
+		<form method="get">
+			<label for="birthdate"><strong>Введите дату рождения (например, 01.12.1990):</strong></label><br>
+			<input type="text" id="birthdate" name="birthdate" required>
+			<button type="submit">Узнать</button>
+		</form>
+		
+		<form method="get">
+			<label for="text"><strong>Введите текст:</strong></label><br>
+			<textarea id="text" name="text" rows="5" cols="40" required></textarea>
+			<button type="submit">Анализировать</button>
+		</form>
+		
+		<form method="get">
+			<label for="text"><strong>Введите текст:</strong></label><br>
+			<textarea id="text" name="text" rows="5" cols="40" required></textarea>
+			<button type="submit">Рассчитать</button>
+		</form>
+	
+		<form method="get">
+			<label><strong>Выберите дату:</strong></label><br>
+			
+			<select name="day" required>
+				<?php for ($d = 1; $d <= 31; $d++): ?>
+					<option value="<?= $d ?>"><?= $d ?></option>
+				<?php endfor; ?>
+			</select>
+			
+			<select name="month" required>
+					<?php 
+					$months = [
+						'1' => 'Январь', '2' => 'Февраль', '3' => 'Март', '4' => 'Апрель', 
+						'5' => 'Май', '6' => 'Июнь', '7' => 'Июль', '8' => 'Август', 
+						'9' => 'Сентябрь', '10' => 'Октябрь', '11' => 'Ноябрь', '12' => 'Декабрь'
+					];
+					foreach ($months as $key => $value): ?>
+						<option value="<?= $key ?>"><?= $value ?></option>
+					<?php endforeach; ?>
+			</select>
+				
+			<select name="year" required>
+				<?php for ($y = 1990; $y <= 2025; $y++): ?>
+					<option value="<?= $y ?>"><?= $y ?></option>
+				<?php endfor; ?>
+			</select>
+		
+			<button type="submit">Определить день недели</button>
+		</form>
+	
+		<form method="get">
+			<label for="birthdate"><strong>Введите дату рождения (например, 01.12.1990):</strong></label><br>
+			<input type="text" id="birthdate" name="birthdate" required>
+			<button type="submit">Узнать гороскоп</button>
+		</form>
+	</body>
+</html>
