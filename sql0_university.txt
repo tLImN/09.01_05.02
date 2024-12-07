@@ -1,0 +1,47 @@
+CREATE DATABASE university;
+USE university;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50),
+    UNIQUE (id)
+);
+
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(50) NOT NULL,
+    instructor VARCHAR(50),
+    UNIQUE (id)
+);
+
+CREATE TABLE registrations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+    	ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+    	ON DELETE CASCADE,
+    UNIQUE (id)
+);
+
+INSERT INTO students (name, email)
+VALUES ('Иван Иванов', 'i.ivanov@mail.ru'),
+       ('Мария Смирнова', 'm.smirnova@ya.ru');
+
+INSERT INTO courses (course_name, instructor)
+VALUES ('Математика', 'Абрамова А.Д.'),
+       ('Физика', 'Плотников Я.В.');
+       
+INSERT INTO registrations (student_id, course_id)
+VALUES (1, 2),
+       (2, 1);
+       
+SELECT students.id, students.name, students.email FROM students
+JOIN registrations ON students.id = registrations.student_id
+WHERE registrations.course_id = 2;
+
+SELECT courses.id, courses.course_name, courses.instructor FROM courses
+JOIN registrations ON courses.id = registrations.course_id
+WHERE registrations.student_id = 1;
